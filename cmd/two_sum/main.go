@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"intern/pkg/two_sum"
+	"github.com/chubaka358/intern/two_sum/pkg/two_sum"
 )
 
 func main(){

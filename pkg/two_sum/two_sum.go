@@ -1,6 +1,6 @@
 package two_sum
 
-// Returns the indices of elements whose sum is equal to the target
+// TwoSum returns the indices of elements whose sum is equal to the target
 // Causes a panic if two of these elements cannot be found.
 func TwoSum(nums []int, target int) []int {
 	// Stores iterated items

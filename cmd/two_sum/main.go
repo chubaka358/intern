@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"two_sum/pkg/two_sum"
+	"intern/pkg/two_sum"
 )
 
 func main(){

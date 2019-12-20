@@ -90,7 +90,7 @@ func TestSetIntersection(t *testing.T) {
 		secondSet.Add("3", "6", "7", "1")
 		want := NewSet()
 		want.Add("1", "3")
-		got := firstSet.Intersection(&secondSet)
+		got := firstSet.Intersection(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)
@@ -101,7 +101,7 @@ func TestSetIntersection(t *testing.T) {
 		firstSet := NewSet()
 		secondSet := NewSet()
 		want := NewSet()
-		got := firstSet.Intersection(&secondSet)
+		got := firstSet.Intersection(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)
@@ -113,7 +113,7 @@ func TestSetIntersection(t *testing.T) {
 		secondSet := NewSet()
 		secondSet.Add("3", "6", "7", "1")
 		want := NewSet()
-		got := firstSet.Intersection(&secondSet)
+		got := firstSet.Intersection(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)
@@ -126,7 +126,7 @@ func TestSetUnion(t *testing.T) {
 		firstSet := NewSet()
 		secondSet := NewSet()
 		want := NewSet()
-		got := firstSet.Union(&secondSet)
+		got := firstSet.Union(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)
@@ -139,7 +139,7 @@ func TestSetUnion(t *testing.T) {
 		secondSet.Add("1", "2", "3", "4", "5")
 		want := NewSet()
 		want.Add("5", "4", "3", "2", "1")
-		got := firstSet.Union(&secondSet)
+		got := firstSet.Union(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)
@@ -153,7 +153,7 @@ func TestSetUnion(t *testing.T) {
 		secondSet.Add("1", "2", "3", "4", "5")
 		want := NewSet()
 		want.Add("5", "4", "3", "2", "1", "7", "15")
-		got := firstSet.Union(&secondSet)
+		got := firstSet.Union(secondSet)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Errorf(diff)

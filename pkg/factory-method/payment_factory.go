@@ -31,26 +31,26 @@ type Producter interface {
 	Replenish(amount int) error
 	Balance() int
 }
+
 // PaymentFactory implements Creater intrface
 type PaymentFactory struct {
-
 }
 
 // NewFactory is the PaymentFactory constructor
-func NewFactory() Creater{
+func NewFactory() Creater {
 	return &PaymentFactory{}
 }
 
 // CreatePayment creates Producter
-func (p *PaymentFactory) CreatePayment(action string) (Producter, error){
+func (p *PaymentFactory) CreatePayment(action string) (Producter, error) {
 	var payment Producter
 	switch action {
 	case "Cash":
-		return &Cash{amount:0}, nil
+		return &Cash{amount: 0}, nil
 	case "CreditCard":
-		return &CreditCard{amount:0}, nil
+		return &CreditCard{amount: 0}, nil
 	case "Bitcoin":
-		return &Bitcoin{amount:0}, nil
+		return &Bitcoin{amount: 0}, nil
 	}
 	return payment, errors.New("unknown payment")
 }
@@ -58,7 +58,7 @@ func (p *PaymentFactory) CreatePayment(action string) (Producter, error){
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
 func (c *Cash) Pay(amount int) error {
-	if c.amount - amount < 0 {
+	if c.amount-amount < 0 {
 		return errors.New("not enough money")
 	}
 	c.amount -= amount
@@ -77,14 +77,14 @@ func (c *Cash) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *Cash) Balance() int{
+func (c *Cash) Balance() int {
 	return c.amount
 }
 
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
 func (c *CreditCard) Pay(amount int) error {
-	if c.amount - amount < 0 {
+	if c.amount-amount < 0 {
 		return errors.New("credit limit exceeded")
 	}
 	c.amount -= amount
@@ -103,14 +103,14 @@ func (c *CreditCard) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *CreditCard) Balance() int{
+func (c *CreditCard) Balance() int {
 	return c.amount
 }
 
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
 func (c *Bitcoin) Pay(amount int) error {
-	if c.amount - amount < 0 {
+	if c.amount-amount < 0 {
 		return errors.New("the transaction has not been approved")
 	}
 	c.amount -= amount
@@ -129,6 +129,6 @@ func (c *Bitcoin) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *Bitcoin) Balance() int{
+func (c *Bitcoin) Balance() int {
 	return c.amount
 }

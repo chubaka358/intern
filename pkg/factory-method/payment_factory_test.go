@@ -5,7 +5,7 @@ import "testing"
 func TestNewFactory(t *testing.T) {
 	factory := NewFactory()
 	v, ok := factory.(Creater)
-	if !ok{
+	if !ok {
 		t.Errorf("expected type Creater, got %T", v)
 	}
 }
@@ -21,7 +21,7 @@ func TestCash(t *testing.T) {
 	}
 
 	cash.Replenish(1000)
-	if cash.Balance() != 1000{
+	if cash.Balance() != 1000 {
 		t.Errorf("expected 1000 on balance")
 	}
 
@@ -42,7 +42,7 @@ func TestCreditCard(t *testing.T) {
 	}
 
 	creditCard.Replenish(1000)
-	if creditCard.Balance() != 1000{
+	if creditCard.Balance() != 1000 {
 		t.Errorf("expected 1000 on balance")
 	}
 
@@ -63,7 +63,7 @@ func TestBitcoin(t *testing.T) {
 	}
 
 	bitcoin.Replenish(1000)
-	if bitcoin.Balance() != 1000{
+	if bitcoin.Balance() != 1000 {
 		t.Errorf("expected 1000 on balance")
 	}
 
@@ -73,7 +73,7 @@ func TestBitcoin(t *testing.T) {
 	}
 }
 
-func TestUnknown(t *testing.T){
+func TestUnknown(t *testing.T) {
 	factory := NewFactory()
 	_, err := factory.CreatePayment("Apple Pay")
 	if err == nil {

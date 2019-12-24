@@ -5,59 +5,43 @@ import (
 	"fmt"
 )
 
-// Creater provides a factory interface
-type Creater interface {
-	CreatePayment(string) (Producter, error)
-}
-
 // Cash implements hard cash
-type Cash struct {
+type cash struct {
 	amount int
 }
 
 // CreditCard implements credit card
-type CreditCard struct {
+type creditCard struct {
 	amount int
 }
 
 // Bitcoin implements bitcoin
-type Bitcoin struct {
+type bitcoin struct {
 	amount int
 }
 
 // Producter provides a payment interface
-type Producter interface {
+type producter interface {
 	Pay(amount int) error
 	Replenish(amount int) error
 	Balance() int
 }
 
-// PaymentFactory implements Creater intrface
-type PaymentFactory struct {
+func NewCash() producter {
+	return &cash{amount: 0}
 }
 
-// NewFactory is the PaymentFactory constructor
-func NewFactory() Creater {
-	return &PaymentFactory{}
+func NewCreditCard() producter {
+	return &creditCard{amount: 0}
 }
 
-// CreatePayment creates Producter
-func (p *PaymentFactory) CreatePayment(action string) (Producter, error) {
-	var payment Producter
-	switch action {
-	case "Cash":
-		return &Cash{amount: 0}, nil
-	case "CreditCard":
-		return &CreditCard{amount: 0}, nil
-	case "Bitcoin":
-		return &Bitcoin{amount: 0}, nil
-	}
-	return payment, errors.New("unknown payment")
+func NewBitcoin() producter {
+	return &bitcoin{amount: 0}
 }
 
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
-func (c *Cash) Pay(amount int) error {
+func (c *cash) Pay(amount int) error {
 	if c.amount-amount < 0 {
 		return errors.New("not enough money")
 	}
@@ -68,7 +52,7 @@ func (c *Cash) Pay(amount int) error {
 
 // Replenish allows you to replenish the balance
 // Throws an error if we try to replenish by less than or equal to zero
-func (c *Cash) Replenish(amount int) error {
+func (c *cash) Replenish(amount int) error {
 	if amount <= 0 {
 		return errors.New("expected replenishment of the balance in the amount greater than zero")
 	}
@@ -77,13 +61,13 @@ func (c *Cash) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *Cash) Balance() int {
+func (c *cash) Balance() int {
 	return c.amount
 }
 
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
-func (c *CreditCard) Pay(amount int) error {
+func (c *creditCard) Pay(amount int) error {
 	if c.amount-amount < 0 {
 		return errors.New("credit limit exceeded")
 	}
@@ -94,7 +78,7 @@ func (c *CreditCard) Pay(amount int) error {
 
 // Replenish allows you to replenish the balance
 // Throws an error if we try to replenish by less than or equal to zero
-func (c *CreditCard) Replenish(amount int) error {
+func (c *creditCard) Replenish(amount int) error {
 	if amount <= 0 {
 		return errors.New("expected replenishment of the balance in the amount greater than zero")
 	}
@@ -103,13 +87,13 @@ func (c *CreditCard) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *CreditCard) Balance() int {
+func (c *creditCard) Balance() int {
 	return c.amount
 }
 
 // Pay allows you to write off money from the account
 // Throws an error if there is not enough money
-func (c *Bitcoin) Pay(amount int) error {
+func (c *bitcoin) Pay(amount int) error {
 	if c.amount-amount < 0 {
 		return errors.New("the transaction has not been approved")
 	}
@@ -120,7 +104,7 @@ func (c *Bitcoin) Pay(amount int) error {
 
 // Replenish allows you to replenish the balance
 // Throws an error if we try to replenish by less than or equal to zero
-func (c *Bitcoin) Replenish(amount int) error {
+func (c *bitcoin) Replenish(amount int) error {
 	if amount <= 0 {
 		return errors.New("expected replenishment of the balance in the amount greater than zero")
 	}
@@ -129,6 +113,6 @@ func (c *Bitcoin) Replenish(amount int) error {
 }
 
 // Balance returns account balance
-func (c *Bitcoin) Balance() int {
+func (c *bitcoin) Balance() int {
 	return c.amount
 }

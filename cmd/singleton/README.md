@@ -2,7 +2,7 @@
 Singleton pattern implementation
 
 ## Usage
-````go
+```go
 package main
 
 import (
@@ -19,4 +19,4 @@ func main() {
 	founder.SetName(founderName)
 	fmt.Println(founder)
 }
-````
+```

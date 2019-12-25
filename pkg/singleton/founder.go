@@ -4,35 +4,41 @@ import (
 	"sync"
 )
 
-type founder struct {
+// founder representation
+type Founder struct {
 	name string
 	age  uint
 }
 
 var (
-	instance *founder
+	instance *Founder
 	once     sync.Once
 )
 
-func (f *founder) SetName(name string) {
+// SetName set founder name
+func (f *Founder) SetName(name string) {
 	f.name = name
 }
 
-func (f *founder) GetName() string {
+// GetName return founder name
+func (f *Founder) GetName() string {
 	return f.name
 }
 
-func (f *founder) SetAge(age uint) {
+// SetAge set founder age
+func (f *Founder) SetAge(age uint) {
 	f.age = age
 }
 
-func (f *founder) GetAge() uint {
+// GetAge return founder age
+func (f *Founder) GetAge() uint {
 	return f.age
 }
 
-func GetFounder() *founder {
+// GetFounder return founder instance
+func GetFounder() *Founder {
 	once.Do(func() {
-		instance = &founder{}
+		instance = &Founder{}
 	})
 	return instance
 }

@@ -1,0 +1,3 @@
+# Proxy Pattern example
+
+## Usage

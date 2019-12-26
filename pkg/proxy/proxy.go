@@ -10,16 +10,16 @@ type daoConnecter interface {
 }
 
 // DAO works directly with the database
-type DAO struct {
+type dao struct {
 }
 
 // DAOProxy declaring connection to DAO
 type DAOProxy struct {
-	connection *DAO
+	connection *dao
 }
 
 // Get receives data by id
-func (d *DAO) Get(id int) string{
+func (d *dao) Get(id int) string {
 	if d == nil {
 		return "Connection doesn't exist\n"
 	} else {
@@ -28,7 +28,7 @@ func (d *DAO) Get(id int) string{
 }
 
 // Update updates data by id
-func (d *DAO) Update(id int, data string) {
+func (d *dao) Update(id int, data string) {
 	if d == nil {
 		fmt.Printf("Connection doesn't exist\n")
 	} else {
@@ -37,7 +37,7 @@ func (d *DAO) Update(id int, data string) {
 }
 
 // Delete deletes data by id
-func (d *DAO) Delete(id int) {
+func (d *dao) Delete(id int) {
 	if d == nil {
 		fmt.Printf("Connection doesn't exist\n")
 	} else {
@@ -46,7 +46,7 @@ func (d *DAO) Delete(id int) {
 }
 
 // Add adds data
-func (d *DAO) Add(data string) {
+func (d *dao) Add(data string) {
 	if d == nil {
 		fmt.Printf("Connection doesn't exist\n")
 	} else {
@@ -56,7 +56,7 @@ func (d *DAO) Add(data string) {
 
 // Get creates connection if not exist
 // And returns data by id
-func (d *DAOProxy) Get(id int) string{
+func (d *DAOProxy) Get(id int) string {
 	d.createConnection()
 	fmt.Printf("Getting..\n")
 	return d.connection.Get(id)
@@ -91,8 +91,8 @@ func (d *DAOProxy) Add(data string) {
 
 // createConnection check if a connection exist
 // Creates connection if not
-func (d *DAOProxy) createConnection(){
+func (d *DAOProxy) createConnection() {
 	if d.connection == nil {
-		d.connection = &DAO{}
+		d.connection = &dao{}
 	}
 }

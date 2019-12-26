@@ -2,7 +2,7 @@ package proxy
 
 import "testing"
 
-func TestProxy(t *testing.T){
+func TestProxy(t *testing.T) {
 	dao := DAOProxy{}
 	want := "Doing inner Get logic\n"
 	got := dao.Get(0)

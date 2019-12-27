@@ -5,36 +5,39 @@ import (
 	"fmt"
 )
 
-// Cash implements hard cash
+// cash implements hard cash
 type cash struct {
 	amount int
 }
 
-// CreditCard implements credit card
+// creditCard implements credit card
 type creditCard struct {
 	amount int
 }
 
-// Bitcoin implements bitcoin
+// bitcoin implements bitcoin
 type bitcoin struct {
 	amount int
 }
 
-// Producter provides a payment interface
+// producter provides a payment interface
 type producter interface {
 	Pay(amount int) error
 	Replenish(amount int) error
 	Balance() int
 }
 
+// NewCash create and return new cash with cash.amount = 0
 func NewCash() producter {
 	return &cash{amount: 0}
 }
 
+// NewCreditCard create and return new creditCard with creditCard.amount = 0
 func NewCreditCard() producter {
 	return &creditCard{amount: 0}
 }
 
+// NewBitcoin create and return new bitcoin with bitcoin.amount = 0
 func NewBitcoin() producter {
 	return &bitcoin{amount: 0}
 }

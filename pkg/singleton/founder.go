@@ -36,7 +36,7 @@ func (f *Founder) GetAge() uint {
 }
 
 // GetFounder return founder instance
-func GetFounder() *Founder {
+func NewFounder() *Founder {
 	once.Do(func() {
 		instance = &Founder{}
 	})

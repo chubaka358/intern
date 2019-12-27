@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	founder := singleton.GetFounder()
+	founder := singleton.NewFounder()
 	var founderAge uint = 10
 	founderName := "magic name"
 	founder.SetAge(founderAge)

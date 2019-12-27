@@ -50,12 +50,12 @@ func (h *PutHandler) SendRequest(requestType string, data string) (result string
 	return
 }
 
-// PutHandler implements handler "PUT"
+// DeleteHandler implements handler "DELETE"
 type DeleteHandler struct {
 	Next Handler
 }
 
-// SendRequest implementation for SendHandler
+// SendRequest implementation for DeleteHandler
 func (h *DeleteHandler) SendRequest(requestType string, data string) (result string) {
 	if requestType == "DELETE" {
 		result = "Using DELETE method"

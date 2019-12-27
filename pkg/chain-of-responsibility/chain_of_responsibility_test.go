@@ -7,46 +7,46 @@ import (
 )
 
 func TestHandler_SendRequest(t *testing.T) {
-	handlers := GetHandler{&DeleteHandler{&PostHandler{&PutHandler{}}}}
-	t.Run("GET request", func(t *testing.T) {
-		want := "Using GET method"
-		got := handlers.SendRequest("GET", "")
+	handlers := NewFirstHandler().SetNextHandler(NewSecondHandler().SetNextHandler(NewThirdHandler().SetNextHandler(NewFourthHandler())))
+	t.Run("data type 1", func(t *testing.T) {
+		want := "Using data type 1 handler"
+		got := handlers.SendRequest("data type 1")
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
 		}
 	})
 
-	t.Run("POST request", func(t *testing.T) {
-		want := "Using POST method"
-		got := handlers.SendRequest("POST", "")
+	t.Run("data type 2", func(t *testing.T) {
+		want := "Using data type 2 handler"
+		got := handlers.SendRequest("data type 2")
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
 		}
 	})
 
-	t.Run("PUT request", func(t *testing.T) {
-		want := "Using PUT method"
-		got := handlers.SendRequest("PUT", "")
+	t.Run("data type 3", func(t *testing.T) {
+		want := "Using data type 3 handler"
+		got := handlers.SendRequest("data type 3")
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
 		}
 	})
 
-	t.Run("DELETE request", func(t *testing.T) {
-		want := "Using DELETE method"
-		got := handlers.SendRequest("DELETE", "")
+	t.Run("data type 4", func(t *testing.T) {
+		want := "Using data type 4 handler"
+		got := handlers.SendRequest("data type 4")
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
 		}
 	})
 
-	t.Run("unknown request", func(t *testing.T) {
+	t.Run("unknown data type", func(t *testing.T) {
 		want := ""
-		got := handlers.SendRequest("WTF", "")
+		got := handlers.SendRequest("WTF")
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)

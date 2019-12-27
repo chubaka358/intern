@@ -7,6 +7,9 @@ import (
 )
 
 func main() {
-	handlers := chain_of_responsibility.GetHandler{&chain_of_responsibility.DeleteHandler{&chain_of_responsibility.PostHandler{&chain_of_responsibility.PutHandler{}}}}
-	fmt.Println("%q", handlers.SendRequest("GT", "1"))
+	handlers := chain_of_responsibility.NewFirstHandler().
+		SetNextHandler(chain_of_responsibility.NewSecondHandler().
+			SetNextHandler(chain_of_responsibility.NewThirdHandler().
+				SetNextHandler(chain_of_responsibility.NewFourthHandler())))
+	fmt.Println(handlers.SendRequest("data type 3"))
 }

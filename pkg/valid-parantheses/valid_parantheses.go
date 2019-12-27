@@ -1,19 +1,19 @@
 package valid_parantheses
 
-type Stack []rune
+type stack []rune
 
 // newStack creates new stack
-func newStack() *Stack {
-	return &Stack{}
+func NewStack() *stack {
+	return &stack{}
 }
 
 // push adds element to the top of stack
-func (s *Stack) push(c rune) {
+func (s *stack) push(c rune) {
 	*s = append(*s, c)
 }
 
 // pop delete and returns element from the top of stack
-func (s *Stack) pop() rune {
+func (s *stack) pop() rune {
 	l := len(*s)
 	tmp := (*s)[l-1]
 	*s = (*s)[:l-1]
@@ -21,7 +21,7 @@ func (s *Stack) pop() rune {
 }
 
 // len returns stack length
-func (s *Stack) len() int {
+func (s *stack) len() int {
 	return len(*s)
 }
 
@@ -29,7 +29,7 @@ func (s *Stack) len() int {
 // else returns false
 func IsValid(s string) bool {
 	matchingBrackets := map[rune]rune{'{': '}', '[': ']', '(': ')'}
-	stack := newStack()
+	stack := NewStack()
 	for _, c := range s {
 		switch c {
 		case '{', '[', '(':

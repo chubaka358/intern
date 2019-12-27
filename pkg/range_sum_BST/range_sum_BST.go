@@ -1,29 +1,30 @@
 package range_sum_BST
 
+// TreeNode is definition for a binary tree node.
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
-var rangeSum = 0
-
+// RangeSumBST return the sum of values of all nodes with value between L and R (inclusive)
 func RangeSumBST(root *TreeNode, L int, R int) int {
-	rangeSum = 0
-	dfs(root, L, R)
+	rangeSum := 0
+	dfs(root, L, R, &rangeSum)
 	return rangeSum
 }
 
-func dfs(node *TreeNode, L int, R int) {
+// dfs traverse tree
+func dfs(node *TreeNode, L int, R int, rangeSum *int) {
 	if node != nil {
 		if L <= node.Val && node.Val <= R {
-			rangeSum += node.Val
+			*rangeSum += node.Val
 		}
 		if node.Val > L {
-			dfs(node.Left, L, R)
+			dfs(node.Left, L, R, rangeSum)
 		}
 		if node.Val < R {
-			dfs(node.Right, L, R)
+			dfs(node.Right, L, R, rangeSum)
 		}
 	}
 }

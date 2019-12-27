@@ -5,10 +5,10 @@ import "testing"
 func TestRangeSumBST(t *testing.T) {
 	t.Run("example1", func(t *testing.T) {
 		tree := &TreeNode{
-			Val:   10,
-			Left:  &TreeNode{
-				Val:   5,
-				Left:  &TreeNode{
+			Val: 10,
+			Left: &TreeNode{
+				Val: 5,
+				Left: &TreeNode{
 					Val:   3,
 					Left:  nil,
 					Right: nil,
@@ -20,8 +20,8 @@ func TestRangeSumBST(t *testing.T) {
 				},
 			},
 			Right: &TreeNode{
-				Val:   15,
-				Left:  nil,
+				Val:  15,
+				Left: nil,
 				Right: &TreeNode{
 					Val:   18,
 					Left:  nil,
@@ -38,20 +38,20 @@ func TestRangeSumBST(t *testing.T) {
 
 	t.Run("example2", func(t *testing.T) {
 		tree := &TreeNode{
-			Val:   10,
-			Left:  &TreeNode{
-				Val:   5,
-				Left:  &TreeNode{
-					Val:   3,
-					Left:  &TreeNode{
+			Val: 10,
+			Left: &TreeNode{
+				Val: 5,
+				Left: &TreeNode{
+					Val: 3,
+					Left: &TreeNode{
 						Val:   1,
 						Left:  nil,
 						Right: nil,
 					},
 				},
 				Right: &TreeNode{
-					Val:   7,
-					Left:  &TreeNode{
+					Val: 7,
+					Left: &TreeNode{
 						Val:   6,
 						Left:  nil,
 						Right: nil,
@@ -60,8 +60,8 @@ func TestRangeSumBST(t *testing.T) {
 				},
 			},
 			Right: &TreeNode{
-				Val:   15,
-				Left:  &TreeNode{
+				Val: 15,
+				Left: &TreeNode{
 					Val:   13,
 					Left:  nil,
 					Right: nil,

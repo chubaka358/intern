@@ -96,12 +96,12 @@ func Connect(button *button, textField *textField, checkbox *checkbox) {
 	mediator.button.SetMediator(mediator)
 }
 
-// NewButtin returns new button
+// NewButton returns new button
 func NewButton() *button {
 	return &button{}
 }
 
-// NewTextField returns new textFiels
+// NewTextField returns new textField
 func NewTextField() *textField {
 	return &textField{}
 }

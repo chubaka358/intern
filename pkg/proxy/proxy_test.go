@@ -3,7 +3,7 @@ package proxy
 import "testing"
 
 func TestProxy(t *testing.T) {
-	dao := DAOProxy{}
+	dao := NewDAOProxy()
 	want := "Doing inner Get logic\n"
 	got := dao.Get(0)
 	if got != want {

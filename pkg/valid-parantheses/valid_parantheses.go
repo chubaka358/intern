@@ -1,9 +1,17 @@
 package valid_parantheses
 
+// stacker provides stack interface
+type stacker interface {
+	push(c rune)
+	pop() rune
+	len() int
+}
+
+// stack implements stack structure
 type stack []rune
 
 // newStack creates new stack
-func NewStack() *stack {
+func newStack() *stack {
 	return &stack{}
 }
 
@@ -29,7 +37,7 @@ func (s *stack) len() int {
 // else returns false
 func IsValid(s string) bool {
 	matchingBrackets := map[rune]rune{'{': '}', '[': ']', '(': ')'}
-	stack := NewStack()
+	stack := newStack()
 	for _, c := range s {
 		switch c {
 		case '{', '[', '(':

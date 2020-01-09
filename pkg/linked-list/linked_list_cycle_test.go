@@ -3,37 +3,37 @@ package linked_list
 import "testing"
 
 func TestHasCycle(t *testing.T) {
-	list1 := &ListNode{
-		Val: 3,
-		Next: &ListNode{
-			Val: 2,
-			Next: &ListNode{
-				Val: 0,
-				Next: &ListNode{
-					Val:  -4,
-					Next: nil,
+	list1 := &listNode{
+		val: 3,
+		next: &listNode{
+			val: 2,
+			next: &listNode{
+				val: 0,
+				next: &listNode{
+					val:  -4,
+					next: nil,
 				},
 			},
 		},
 	}
-	list1.Next.Next.Next.Next = list1.Next
+	list1.next.next.next.next = list1.next
 
-	list2 := &ListNode{
-		Val: 1,
-		Next: &ListNode{
-			Val:  2,
-			Next: nil,
+	list2 := &listNode{
+		val: 1,
+		next: &listNode{
+			val:  2,
+			next: nil,
 		},
 	}
-	list2.Next.Next = list2
+	list2.next.next = list2
 
-	list3 := &ListNode{
-		Val:  1,
-		Next: nil,
+	list3 := &listNode{
+		val:  1,
+		next: nil,
 	}
 
 	tests := map[string]struct {
-		listNode *ListNode
+		listNode *listNode
 		want     bool
 	}{
 		"example1": {list1, true},

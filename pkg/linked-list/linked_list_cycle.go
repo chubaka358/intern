@@ -1,25 +1,33 @@
 package linked_list
 
-// ListNode is definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
+// listNode is definition for singly-linked list.
+type listNode struct {
+	val  int
+	next *listNode
 }
 
 // HasCycle determine if list has a cycle in it
 // Return true if has, else return false
-func HasCycle(head *ListNode) bool {
-	if head == nil || head.Next == nil {
+func HasCycle(head *listNode) bool {
+	if head == nil || head.next == nil {
 		return false
 	}
 	slow := head
-	fast := head.Next
+	fast := head.next
 	for slow != fast {
-		if fast == nil || fast.Next == nil {
+		if fast == nil || fast.next == nil {
 			return false
 		}
-		slow = slow.Next
-		fast = fast.Next.Next
+		slow = slow.next
+		fast = fast.next.next
 	}
 	return true
+}
+
+// NewListNode creates new listNode and returns pointer to new listNode
+func NewListNode(val int, next *listNode) *listNode {
+	return &listNode{
+		val:  val,
+		next: next,
+	}
 }

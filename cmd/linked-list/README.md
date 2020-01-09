@@ -14,16 +14,8 @@ import (
 )
 
 func main() {
-	fmt.Println(linked_list.HasCycle(&linked_list.ListNode{
-		Val:  1,
-		Next: &linked_list.ListNode{
-			Val:  2,
-			Next: &linked_list.ListNode{
-				Val:  3,
-				Next: nil,
-			},
-		},
-	})) // false
+	list := linked_list.NewListNode(1, linked_list.NewListNode(2, linked_list.NewListNode(3, nil)))
+	fmt.Println(linked_list.HasCycle(list))
 }
 ```
 

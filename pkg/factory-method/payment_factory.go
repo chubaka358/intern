@@ -5,6 +5,13 @@ import (
 	"fmt"
 )
 
+// producter provides a payment interface
+type producter interface {
+	Pay(amount int) error
+	Replenish(amount int) error
+	Balance() int
+}
+
 // cash implements hard cash
 type cash struct {
 	amount int
@@ -18,28 +25,6 @@ type creditCard struct {
 // bitcoin implements bitcoin
 type bitcoin struct {
 	amount int
-}
-
-// producter provides a payment interface
-type producter interface {
-	Pay(amount int) error
-	Replenish(amount int) error
-	Balance() int
-}
-
-// NewCash create and return new cash with cash.amount = 0
-func NewCash() producter {
-	return &cash{amount: 0}
-}
-
-// NewCreditCard create and return new creditCard with creditCard.amount = 0
-func NewCreditCard() producter {
-	return &creditCard{amount: 0}
-}
-
-// NewBitcoin create and return new bitcoin with bitcoin.amount = 0
-func NewBitcoin() producter {
-	return &bitcoin{amount: 0}
 }
 
 // Pay allows you to write off money from the account
@@ -118,4 +103,19 @@ func (c *bitcoin) Replenish(amount int) error {
 // Balance returns account balance
 func (c *bitcoin) Balance() int {
 	return c.amount
+}
+
+// NewCash create and return new cash with cash.amount = 0
+func NewCash() producter {
+	return &cash{amount: 0}
+}
+
+// NewCreditCard create and return new creditCard with creditCard.amount = 0
+func NewCreditCard() producter {
+	return &creditCard{amount: 0}
+}
+
+// NewBitcoin create and return new bitcoin with bitcoin.amount = 0
+func NewBitcoin() producter {
+	return &bitcoin{amount: 0}
 }

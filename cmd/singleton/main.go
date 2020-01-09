@@ -7,12 +7,7 @@ import (
 )
 
 func main() {
-	founder := singleton.NewFounder()
-	newFounder := &singleton.Founder{}
-	fmt.Println(founder == newFounder)
-	var founderAge uint = 10
-	founderName := "magic name"
-	founder.SetAge(founderAge)
-	founder.SetName(founderName)
-	fmt.Println(founder)
+	founder1 := singleton.NewFounder()
+	founder2 := singleton.NewFounder()
+	fmt.Println(founder1 == founder2)
 }

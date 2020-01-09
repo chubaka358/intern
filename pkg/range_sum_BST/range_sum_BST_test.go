@@ -4,28 +4,28 @@ import "testing"
 
 func TestRangeSumBST(t *testing.T) {
 	t.Run("example1", func(t *testing.T) {
-		tree := &TreeNode{
-			Val: 10,
-			Left: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
+		tree := &treeNode{
+			val: 10,
+			left: &treeNode{
+				val: 5,
+				left: &treeNode{
+					val:   3,
+					left:  nil,
+					right: nil,
 				},
-				Right: &TreeNode{
-					Val:   7,
-					Left:  nil,
-					Right: nil,
+				right: &treeNode{
+					val:   7,
+					left:  nil,
+					right: nil,
 				},
 			},
-			Right: &TreeNode{
-				Val:  15,
-				Left: nil,
-				Right: &TreeNode{
-					Val:   18,
-					Left:  nil,
-					Right: nil,
+			right: &treeNode{
+				val:  15,
+				left: nil,
+				right: &treeNode{
+					val:   18,
+					left:  nil,
+					right: nil,
 				},
 			},
 		}
@@ -37,39 +37,39 @@ func TestRangeSumBST(t *testing.T) {
 	})
 
 	t.Run("example2", func(t *testing.T) {
-		tree := &TreeNode{
-			Val: 10,
-			Left: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val: 3,
-					Left: &TreeNode{
-						Val:   1,
-						Left:  nil,
-						Right: nil,
+		tree := &treeNode{
+			val: 10,
+			left: &treeNode{
+				val: 5,
+				left: &treeNode{
+					val: 3,
+					left: &treeNode{
+						val:   1,
+						left:  nil,
+						right: nil,
 					},
 				},
-				Right: &TreeNode{
-					Val: 7,
-					Left: &TreeNode{
-						Val:   6,
-						Left:  nil,
-						Right: nil,
+				right: &treeNode{
+					val: 7,
+					left: &treeNode{
+						val:   6,
+						left:  nil,
+						right: nil,
 					},
-					Right: nil,
+					right: nil,
 				},
 			},
-			Right: &TreeNode{
-				Val: 15,
-				Left: &TreeNode{
-					Val:   13,
-					Left:  nil,
-					Right: nil,
+			right: &treeNode{
+				val: 15,
+				left: &treeNode{
+					val:   13,
+					left:  nil,
+					right: nil,
 				},
-				Right: &TreeNode{
-					Val:   18,
-					Left:  nil,
-					Right: nil,
+				right: &treeNode{
+					val:   18,
+					left:  nil,
+					right: nil,
 				},
 			},
 		}

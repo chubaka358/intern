@@ -7,30 +7,10 @@ import (
 )
 
 func main() {
-	tree := &range_sum_BST.TreeNode{
-		Val: 10,
-		Left: &range_sum_BST.TreeNode{
-			Val: 5,
-			Left: &range_sum_BST.TreeNode{
-				Val:   3,
-				Left:  nil,
-				Right: nil,
-			},
-			Right: &range_sum_BST.TreeNode{
-				Val:   7,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &range_sum_BST.TreeNode{
-			Val:  15,
-			Left: nil,
-			Right: &range_sum_BST.TreeNode{
-				Val:   18,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
+	tree := range_sum_BST.NewTreeNode(10,
+		range_sum_BST.NewTreeNode(5,
+			range_sum_BST.NewTreeNode(3, nil, nil),
+			range_sum_BST.NewTreeNode(7, nil, nil)),
+		range_sum_BST.NewTreeNode(15, nil, range_sum_BST.NewTreeNode(18, nil, nil)))
 	fmt.Println(range_sum_BST.RangeSumBST(tree, 7, 15))
 }

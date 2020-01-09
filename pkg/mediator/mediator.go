@@ -5,6 +5,11 @@ type mediator interface {
 	Notify(msg string) string
 }
 
+type colleaguer interface {
+	SetMediator(mediator mediator)
+	SendData() string
+}
+
 // actionMediator implements mediator
 type actionMediator struct {
 	*button

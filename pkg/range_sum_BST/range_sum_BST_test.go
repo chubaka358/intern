@@ -30,7 +30,7 @@ func TestRangeSumBST(t *testing.T) {
 			},
 		}
 		want := 32
-		got := RangeSumBST(tree, 7, 15)
+		got := tree.RangeSumBST(7, 15)
 		if want != got {
 			t.Errorf("want %v, got %v", want, got)
 		}
@@ -74,7 +74,7 @@ func TestRangeSumBST(t *testing.T) {
 			},
 		}
 		want := 23
-		got := RangeSumBST(tree, 6, 10)
+		got := tree.RangeSumBST(6, 10)
 		if want != got {
 			t.Errorf("want %v, got %v", want, got)
 		}

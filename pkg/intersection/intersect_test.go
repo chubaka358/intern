@@ -18,7 +18,7 @@ func TestIntersect(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := Intersect(tc.inputArg1, tc.inputArg2)
+			got := NewIntersecter().Intersect(tc.inputArg1, tc.inputArg2)
 			diff := cmp.Diff(tc.want, got)
 			if diff != "" {
 				t.Errorf(diff)

@@ -24,7 +24,7 @@ import (
 )
 
 func main() {
-	fmt.Println(intersection.Intersect([]int{3, 2, 1, 3}, []int{3, 1, 2}))
+	fmt.Println(intersection.NewIntersecter().Intersect([]int{3, 2, 1, 3}, []int{3, 1, 2}))
 }
 ```
 

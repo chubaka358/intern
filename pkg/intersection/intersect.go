@@ -2,8 +2,15 @@ package intersection
 
 import "sort"
 
+type Intersecter interface {
+	Intersect(nums1 []int, nums2 []int) []int
+}
+
+type intersect struct {
+}
+
 // Intersect returns nums1 and nums2 intersection
-func Intersect(nums1 []int, nums2 []int) []int {
+func (p *intersect) Intersect(nums1 []int, nums2 []int) []int {
 	sort.Ints(nums1)
 	sort.Ints(nums2)
 	i := 0
@@ -21,4 +28,8 @@ func Intersect(nums1 []int, nums2 []int) []int {
 		}
 	}
 	return inter
+}
+
+func NewIntersecter() Intersecter {
+	return &intersect{}
 }

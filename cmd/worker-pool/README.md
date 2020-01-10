@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	worker_pool.WorkerPool(5)
+	worker_pool.NewWorkerPool(5).StartWorkerPool()
 }
 ```
 

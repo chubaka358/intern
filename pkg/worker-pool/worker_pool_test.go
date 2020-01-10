@@ -6,6 +6,6 @@ import (
 
 func BenchmarkWorkerPool(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		WorkerPool(100)
+		NewWorkerPool(1000).StartWorkerPool()
 	}
 }

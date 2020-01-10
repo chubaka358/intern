@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println(valid_parantheses.IsValid("()[]{}"))
+	fmt.Println(valid_parantheses.NewValid().IsValid("()[]{}"))
 }

@@ -24,7 +24,7 @@ func TestIsValid(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := IsValid(tc.input)
+			got := NewValid().IsValid(tc.input)
 			diff := cmp.Diff(tc.want, got)
 			if diff != "" {
 				t.Fatalf(diff)

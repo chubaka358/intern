@@ -6,15 +6,15 @@ import (
 
 func TestReverseList(t *testing.T) {
 
-	isListsEqual := func(list1 *ListNode, list2 *ListNode) bool {
+	isListsEqual := func(list1 *listNode, list2 *listNode) bool {
 		currentNode1 := list1
 		currentNode2 := list2
 		for currentNode1 != nil && currentNode2 != nil {
-			if currentNode1.Val != currentNode2.Val {
+			if currentNode1.GetValue() != currentNode2.GetValue() {
 				return false
 			}
-			currentNode1 = currentNode1.Next
-			currentNode2 = currentNode2.Next
+			currentNode1 = currentNode1.next
+			currentNode2 = currentNode2.next
 		}
 		if currentNode1 != currentNode2 {
 			return false
@@ -22,54 +22,23 @@ func TestReverseList(t *testing.T) {
 		return true
 	}
 
+	list1 := NewListNode(1)
+	list1.SetNextNode(2).SetNextNode(3).SetNextNode(4).SetNextNode(5)
+	list2 := NewListNode(5)
+	list2.SetNextNode(4).SetNextNode(3).SetNextNode(2).SetNextNode(1)
+
 	tests := map[string]struct {
-		input *ListNode
-		want  *ListNode
+		input *listNode
+		want  *listNode
 	}{
-		"example 1": {&ListNode{
-			Val: 1,
-			Next: &ListNode{
-				Val: 2,
-				Next: &ListNode{
-					Val: 3,
-					Next: &ListNode{
-						Val: 4,
-						Next: &ListNode{
-							Val:  5,
-							Next: nil,
-						},
-					},
-				},
-			},
-		}, &ListNode{
-			Val: 5,
-			Next: &ListNode{
-				Val: 4,
-				Next: &ListNode{
-					Val: 3,
-					Next: &ListNode{
-						Val: 2,
-						Next: &ListNode{
-							Val:  1,
-							Next: nil,
-						},
-					},
-				},
-			},
-		}},
+		"example 1": {list1, list2},
 		"single element": {
-			&ListNode{
-				Val:  1,
-				Next: nil,
-			}, &ListNode{
-				Val:  1,
-				Next: nil,
-			},
+			NewListNode(1), NewListNode(1),
 		},
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := ReverseList(tc.input)
+			got := tc.input.ReverseList()
 			if !isListsEqual(got, tc.want) {
 				t.Fatalf("want %#v, got %#v", tc.want, got)
 			}

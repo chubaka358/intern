@@ -7,19 +7,11 @@ import (
 )
 
 func main() {
-	list := &reverse_linked_list.ListNode{
-		Val: 5,
-		Next: &reverse_linked_list.ListNode{
-			Val: 3,
-			Next: &reverse_linked_list.ListNode{
-				Val:  17,
-				Next: nil,
-			},
-		},
-	}
-	reversedList := reverse_linked_list.ReverseList(list)
-	for head := reversedList; head != nil; head = head.Next {
-		fmt.Printf("%v-->", head.Val)
+	list := reverse_linked_list.NewListNode(1)
+	list.SetNextNode(2).SetNextNode(3).SetNextNode(4)
+	reversedList := list.ReverseList()
+	for head := reversedList; head != nil; head = head.GetNext() {
+		fmt.Printf("%v-->", head.GetValue())
 	}
 	fmt.Println("<nil>")
 }

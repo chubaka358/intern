@@ -27,7 +27,8 @@ func TestIsomorphicStrings(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := IsIsomorphic(tc.inputS, tc.inputT)
+			isomorph := NewIsomorph()
+			got := isomorph.IsIsomorphic(tc.inputS, tc.inputT)
 			diff := cmp.Diff(tc.want, got)
 			if diff != "" {
 				t.Fatalf(diff)

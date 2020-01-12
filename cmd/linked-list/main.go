@@ -7,14 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println(linked_list.HasCycle(&linked_list.ListNode{
-		Val: 1,
-		Next: &linked_list.ListNode{
-			Val: 2,
-			Next: &linked_list.ListNode{
-				Val:  3,
-				Next: nil,
-			},
-		},
-	}))
+	list := linked_list.NewListNode(1)
+	list.SetNextNode(linked_list.NewListNode(2)).SetNextNode(list)
+	fmt.Println(list.HasCycle(list))
 }

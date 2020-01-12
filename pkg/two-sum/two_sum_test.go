@@ -18,7 +18,8 @@ func TestTwoSum(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := TwoSum(tc.inputNums, tc.inputTarget)
+			twoSum := NewTwoSum()
+			got := twoSum.TwoSum(tc.inputNums, tc.inputTarget)
 			diff := cmp.Diff(tc.want, got)
 			if diff != "" {
 				t.Fatalf(diff)

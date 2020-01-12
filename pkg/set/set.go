@@ -1,22 +1,17 @@
 package set
 
-type settable interface {
-	Add(...string)
-	Delete(string)
+// Setter provides set interface
+type Setter interface {
+	Add(elements ...string)
+	Delete(element string)
 	Size() int
-	Contains(string) bool
-	Intersection(set) set
-	Union(set) set
+	Contains(element string) bool
+	Intersection(anotherS *set) set
+	Union(anotherS *set) set
 }
 
 // set stores elements
 type set map[string]bool
-
-// NewSet creates and returns a new empty set
-func NewSet() set {
-	innerMap := make(map[string]bool)
-	return innerMap
-}
 
 // Add adds s to the set
 func (s *set) Add(elements ...string) {
@@ -74,4 +69,10 @@ func (s *set) Union(anotherS *set) set {
 		}
 	}
 	return unionSet
+}
+
+// NewSet creates and returns a new empty set
+func NewSet() set {
+	innerMap := make(map[string]bool)
+	return innerMap
 }

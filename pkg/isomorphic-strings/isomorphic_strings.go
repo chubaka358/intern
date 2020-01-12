@@ -2,10 +2,19 @@ package isomorphic_strings
 
 import "unicode/utf8"
 
+// Isomorpher provides isomorph interface
+type Isomorpher interface {
+	IsIsomorphic(s, t string) bool
+}
+
+// isomorph implemenents IsIsomorphic
+type isomorph struct {
+}
+
 // IsIsomorphic returns true if two strings are isomorphic
 // Otherwise IsIsomorphic returns false
 // Two strings are isomorphic if the characters in s can be replaced to get t.
-func IsIsomorphic(s, t string) bool {
+func (i *isomorph) IsIsomorphic(s, t string) bool {
 	// If two lines have different lengths, then they are not isomorphic
 	if utf8.RuneCountInString(s) != utf8.RuneCountInString(t) {
 		return false
@@ -39,4 +48,9 @@ func IsIsomorphic(s, t string) bool {
 	}
 	// Strings are isomorphic
 	return true
+}
+
+// NewIsomorph returns new isomorph
+func NewIsomorph() Isomorpher {
+	return &isomorph{}
 }

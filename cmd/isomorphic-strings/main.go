@@ -7,5 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println(isomorphic_strings.IsIsomorphic("ab", "aa"))
+	isomorph := isomorphic_strings.NewIsomorph()
+	fmt.Println(isomorph.IsIsomorphic("ab", "aa"))
 }

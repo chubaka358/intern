@@ -3,13 +3,13 @@ package linked_list
 import "testing"
 
 func TestHasCycle(t *testing.T) {
-	list1 := &ListNode{
+	list1 := &listNode{
 		Val: 3,
-		Next: &ListNode{
+		Next: &listNode{
 			Val: 2,
-			Next: &ListNode{
+			Next: &listNode{
 				Val: 0,
-				Next: &ListNode{
+				Next: &listNode{
 					Val:  -4,
 					Next: nil,
 				},
@@ -18,22 +18,22 @@ func TestHasCycle(t *testing.T) {
 	}
 	list1.Next.Next.Next.Next = list1.Next
 
-	list2 := &ListNode{
+	list2 := &listNode{
 		Val: 1,
-		Next: &ListNode{
+		Next: &listNode{
 			Val:  2,
 			Next: nil,
 		},
 	}
 	list2.Next.Next = list2
 
-	list3 := &ListNode{
+	list3 := &listNode{
 		Val:  1,
 		Next: nil,
 	}
 
 	tests := map[string]struct {
-		listNode *ListNode
+		listNode *listNode
 		want     bool
 	}{
 		"example1": {list1, true},
@@ -43,7 +43,8 @@ func TestHasCycle(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			got := HasCycle(tc.listNode)
+			list := NewListNode(0)
+			got := list.HasCycle(tc.listNode)
 			if got != tc.want {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}

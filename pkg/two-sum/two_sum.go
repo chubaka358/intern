@@ -1,8 +1,17 @@
 package two_sum
 
+// TwoSumer provides twoSum interface
+type TwoSumer interface {
+	TwoSum(nums []int, target int) []int
+}
+
+// twoSum implements two sum algorithm
+type twoSum struct {
+}
+
 // TwoSum returns the indices of elements whose sum is equal to the target
 // Causes a panic if two of these elements cannot be found.
-func TwoSum(nums []int, target int) []int {
+func (t *twoSum) TwoSum(nums []int, target int) []int {
 	// Stores iterated items
 	numbersMap := make(map[int]int)
 
@@ -19,4 +28,9 @@ func TwoSum(nums []int, target int) []int {
 	}
 	// incorrect input
 	panic("Wrong arguments")
+}
+
+// NewTwoSum returns new twoSum
+func NewTwoSum() *twoSum {
+	return &twoSum{}
 }

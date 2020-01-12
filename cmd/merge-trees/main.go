@@ -7,46 +7,10 @@ import (
 )
 
 func main() {
-	tree1 := &merge_trees.TreeNode{
-		Val: 1,
-		Left: &merge_trees.TreeNode{
-			Val: 3,
-			Left: &merge_trees.TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-			Right: nil,
-		},
-		Right: &merge_trees.TreeNode{
-			Val:   2,
-			Left:  nil,
-			Right: nil,
-		},
-	}
+	tree1 := merge_trees.NewTreeNode()
+	tree1.Val = 1
+	tree2 := merge_trees.NewTreeNode()
+	tree2.Val = 5
 
-	tree2 := &merge_trees.TreeNode{
-		Val: 2,
-		Left: &merge_trees.TreeNode{
-			Val:  1,
-			Left: nil,
-			Right: &merge_trees.TreeNode{
-				Val:   4,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &merge_trees.TreeNode{
-			Val:  3,
-			Left: nil,
-			Right: &merge_trees.TreeNode{
-				Val:   7,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
-
-	newTree := merge_trees.MergeTrees(tree1, tree2)
-	fmt.Println(newTree)
+	fmt.Println(tree1.MergeTrees(tree1, tree2))
 }

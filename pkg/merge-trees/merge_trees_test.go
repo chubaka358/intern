@@ -8,71 +8,71 @@ import (
 
 func TestMergeTrees(t *testing.T) {
 	t.Run("simple test", func(t *testing.T) {
-		tree1 := &TreeNode{
+		tree1 := &treeNode{
 			Val: 1,
-			Left: &TreeNode{
+			Left: &treeNode{
 				Val: 3,
-				Left: &TreeNode{
+				Left: &treeNode{
 					Val:   5,
 					Left:  nil,
 					Right: nil,
 				},
 				Right: nil,
 			},
-			Right: &TreeNode{
+			Right: &treeNode{
 				Val:   2,
 				Left:  nil,
 				Right: nil,
 			},
 		}
 
-		tree2 := &TreeNode{
+		tree2 := &treeNode{
 			Val: 2,
-			Left: &TreeNode{
+			Left: &treeNode{
 				Val:  1,
 				Left: nil,
-				Right: &TreeNode{
+				Right: &treeNode{
 					Val:   4,
 					Left:  nil,
 					Right: nil,
 				},
 			},
-			Right: &TreeNode{
+			Right: &treeNode{
 				Val:  3,
 				Left: nil,
-				Right: &TreeNode{
+				Right: &treeNode{
 					Val:   7,
 					Left:  nil,
 					Right: nil,
 				},
 			},
 		}
-		want := &TreeNode{
+		want := &treeNode{
 			Val: 3,
-			Left: &TreeNode{
+			Left: &treeNode{
 				Val: 4,
-				Left: &TreeNode{
+				Left: &treeNode{
 					Val:   5,
 					Left:  nil,
 					Right: nil,
 				},
-				Right: &TreeNode{
+				Right: &treeNode{
 					Val:   4,
 					Left:  nil,
 					Right: nil,
 				},
 			},
-			Right: &TreeNode{
+			Right: &treeNode{
 				Val:  5,
 				Left: nil,
-				Right: &TreeNode{
+				Right: &treeNode{
 					Val:   7,
 					Left:  nil,
 					Right: nil,
 				},
 			},
 		}
-		got := MergeTrees(tree1, tree2)
+		got := tree1.MergeTrees(tree1, tree2)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
@@ -80,32 +80,33 @@ func TestMergeTrees(t *testing.T) {
 	})
 
 	t.Run("empty trees", func(t *testing.T) {
-		got := MergeTrees(nil, nil)
+		tree := NewTreeNode()
+		got := tree.MergeTrees(nil, nil)
 		if got != nil {
 			t.Fatalf("want %v, got %v", nil, got)
 		}
 	})
 
 	t.Run("empty and non-emtpy tree", func(t *testing.T) {
-		tree := &TreeNode{
+		tree := &treeNode{
 			Val: 1,
-			Left: &TreeNode{
+			Left: &treeNode{
 				Val: 3,
-				Left: &TreeNode{
+				Left: &treeNode{
 					Val:   5,
 					Left:  nil,
 					Right: nil,
 				},
 				Right: nil,
 			},
-			Right: &TreeNode{
+			Right: &treeNode{
 				Val:   2,
 				Left:  nil,
 				Right: nil,
 			},
 		}
-		got1 := MergeTrees(tree, nil)
-		got2 := MergeTrees(nil, tree)
+		got1 := tree.MergeTrees(tree, nil)
+		got2 := tree.MergeTrees(nil, tree)
 		diff1 := cmp.Diff(tree, got1)
 		diff2 := cmp.Diff(tree, got2)
 		if diff1 != "" {

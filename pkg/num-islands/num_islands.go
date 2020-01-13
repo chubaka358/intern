@@ -10,6 +10,20 @@ type IslandsCounter interface {
 type islandsCount struct {
 }
 
+// NumIslands returns number of islands on the map
+func (i *islandsCount) NumIslands(grid [][]byte) int {
+	count := 0
+	for k := 0; k < len(grid); k++ {
+		for j := 0; j < len(grid[0]); j++ {
+			if grid[k][j] == '1' {
+				count++
+				i.traverseIsland(grid, k, j)
+			}
+		}
+	}
+	return count
+}
+
 // traverseIsland traverse island and set all island bytes to `0`
 func (i *islandsCount) traverseIsland(grid [][]byte, row int, col int) {
 	grid[row][col] = 0
@@ -25,20 +39,6 @@ func (i *islandsCount) traverseIsland(grid [][]byte, row int, col int) {
 	if col-1 >= 0 && grid[row][col-1] == '1' {
 		i.traverseIsland(grid, row, col-1)
 	}
-}
-
-// NumIslands returns number of islands on the map
-func (i *islandsCount) NumIslands(grid [][]byte) int {
-	count := 0
-	for k := 0; k < len(grid); k++ {
-		for j := 0; j < len(grid[0]); j++ {
-			if grid[k][j] == '1' {
-				count++
-				i.traverseIsland(grid, k, j)
-			}
-		}
-	}
-	return count
 }
 
 // NewIslandCount returns new islandCount

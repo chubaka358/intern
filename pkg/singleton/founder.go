@@ -9,7 +9,7 @@ var (
 	once     sync.Once
 )
 
-type founderer interface {
+type Founderer interface {
 	SetName(name string)
 	GetName() string
 	SetAge(age uint)

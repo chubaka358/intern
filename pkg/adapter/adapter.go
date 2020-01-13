@@ -6,11 +6,6 @@ import (
 	"github.com/basgys/goxml2json"
 )
 
-// JSONer provides adapter interface
-type JSONer interface {
-	SendJSON() string
-}
-
 // adapter implements adapter
 type adapter struct {
 	*adaptee

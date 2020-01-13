@@ -1,10 +1,5 @@
 package adapter
 
-// XMLer provides adaptee interface
-type XMLer interface {
-	SendXML() string
-}
-
 // adaptee implements adaptee
 type adaptee struct {
 }

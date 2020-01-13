@@ -5,7 +5,7 @@ import "testing"
 func TestCash(t *testing.T) {
 	cash := NewCash()
 	if cash == nil {
-		t.Errorf("successful creation of the object was expected")
+		t.Fatalf("successful creation of the object was expected")
 	}
 	if cash.Balance() != 0 {
 		t.Errorf("expected 1000 on balance")
@@ -25,7 +25,7 @@ func TestCash(t *testing.T) {
 func TestCreditCard(t *testing.T) {
 	creditCard := NewCreditCard()
 	if creditCard == nil {
-		t.Errorf("successful creation of the object was expected")
+		t.Fatalf("successful creation of the object was expected")
 	}
 	if creditCard.Balance() != 0 {
 		t.Errorf("expected 1000 on balance")
@@ -45,7 +45,7 @@ func TestCreditCard(t *testing.T) {
 func TestBitcoin(t *testing.T) {
 	bitcoin := NewBitcoin()
 	if bitcoin == nil {
-		t.Errorf("successful creation of the object was expected")
+		t.Fatalf("successful creation of the object was expected")
 	}
 	if bitcoin.Balance() != 0 {
 		t.Errorf("expected 1000 on balance")

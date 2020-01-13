@@ -2,10 +2,12 @@ package intersection
 
 import "sort"
 
+// Intersecter provides intersect interface
 type Intersecter interface {
 	Intersect(nums1 []int, nums2 []int) []int
 }
 
+// intersect implemenets Intersect
 type intersect struct {
 }
 
@@ -30,6 +32,7 @@ func (p *intersect) Intersect(nums1 []int, nums2 []int) []int {
 	return inter
 }
 
+// NewIntersecter returns new Intersecter
 func NewIntersecter() Intersecter {
 	return &intersect{}
 }

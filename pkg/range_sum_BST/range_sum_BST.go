@@ -1,5 +1,6 @@
 package range_sum_BST
 
+// TreeNoder provides treeNode interface
 type TreeNoder interface {
 	RangeSumBST(L int, R int) int
 }
@@ -9,6 +10,13 @@ type treeNode struct {
 	val   int
 	left  *treeNode
 	right *treeNode
+}
+
+// RangeSumBST return the sum of values of all nodes with value between L and R (inclusive)
+func (t *treeNode) RangeSumBST(L int, R int) int {
+	rangeSum := 0
+	t.dfs(L, R, &rangeSum)
+	return rangeSum
 }
 
 // dfs traverse tree
@@ -22,13 +30,6 @@ func (t *treeNode) dfs(L int, R int, rangeSum *int) {
 	if t.val < R && t.right != nil {
 		t.right.dfs(L, R, rangeSum)
 	}
-}
-
-// RangeSumBST return the sum of values of all nodes with value between L and R (inclusive)
-func (t *treeNode) RangeSumBST(L int, R int) int {
-	rangeSum := 0
-	t.dfs(L, R, &rangeSum)
-	return rangeSum
 }
 
 // NewTreeNode creates new treeNode and returns pointer to treeNode

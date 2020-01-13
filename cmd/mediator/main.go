@@ -10,6 +10,7 @@ func main() {
 	button := mediator.NewButton()
 	textField := mediator.NewTextField()
 	checkbox := mediator.NewCheckbox()
+	mediator := mediator.NewActionMediator()
 	mediator.Connect(button, textField, checkbox)
 	fmt.Println(textField.SendData())
 	fmt.Println(checkbox.SendData())

@@ -6,7 +6,8 @@ func TestMediator(t *testing.T) {
 	button := &button{}
 	textField := &textField{}
 	checkbox := &checkbox{}
-	Connect(button, textField, checkbox)
+	mediator := NewActionMediator()
+	mediator.Connect(button, textField, checkbox)
 
 	gotTextField := textField.SendData()
 	wantTextField := "data was filled"

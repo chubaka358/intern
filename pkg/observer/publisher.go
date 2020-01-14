@@ -1,6 +1,6 @@
 package observer
 
-// publisher interface
+// Publisher interface
 type Publisher interface {
 	Attach(observer Observer)
 	Unsubscribe(observer Observer)

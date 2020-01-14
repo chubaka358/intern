@@ -20,7 +20,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/intersection"
+	"github.com/jayhrat/intern/pkg/intersection"
 )
 
 func main() {

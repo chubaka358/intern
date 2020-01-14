@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/linked-list"
+	"github.com/jayhrat/intern/pkg/linked-list"
 )
 
 func main() {

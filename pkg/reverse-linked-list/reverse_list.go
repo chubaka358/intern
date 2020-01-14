@@ -8,7 +8,7 @@ type ListNoder interface {
 	GetNext() *listNode
 }
 
-// ListNode is a definition for singly-linked list.
+// listNode is a definition for singly-linked list.
 type listNode struct {
 	val  int
 	next *listNode

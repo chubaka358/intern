@@ -4,14 +4,14 @@ import (
 	"sync"
 )
 
+// WorkerPooler provides workerPool interface
+type WorkerPooler interface {
+	StartWorkerPool()
+}
+
 // workerPool implements worker pool
 type workerPool struct {
 	employees int
-}
-
-// workerPooler provides workerPool interface
-type workerPooler interface {
-	StartWorkerPool()
 }
 
 // StartWorkerPool launches the employees who do the work, and the foreman who accept their work
@@ -31,6 +31,6 @@ func (w *workerPool) StartWorkerPool() {
 }
 
 // NewWorkerPool creates and returns new workerPool
-func NewWorkerPool(employees int) workerPooler {
+func NewWorkerPool(employees int) WorkerPooler {
 	return &workerPool{employees}
 }

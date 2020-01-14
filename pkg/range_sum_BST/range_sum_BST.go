@@ -5,7 +5,7 @@ type TreeNoder interface {
 	RangeSumBST(L int, R int) int
 }
 
-// TreeNode is definition for a binary tree node.
+// treeNode is definition for a binary tree node.
 type treeNode struct {
 	val   int
 	left  *treeNode

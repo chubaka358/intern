@@ -6,8 +6,8 @@ import (
 	"time"
 )
 
-// employeer provides employee interface
-type employeer interface {
+// Employeer provides employee interface
+type Employeer interface {
 	work(i int, ch chan<- string)
 }
 

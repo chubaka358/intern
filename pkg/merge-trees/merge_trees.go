@@ -5,7 +5,7 @@ type TreeNoder interface {
 	MergeTrees(t1 *treeNode, t2 *treeNode) *treeNode
 }
 
-// TreeNode is definition for a binary tree node.
+// treeNode is definition for a binary tree node.
 type treeNode struct {
 	Val   int
 	Left  *treeNode

@@ -6,7 +6,7 @@ type ListNoder interface {
 	NextNode(list *listNode) *listNode
 }
 
-// ListNode is definition for singly-linked list.
+// listNode is definition for singly-linked list.
 type listNode struct {
 	Val  int
 	Next *listNode
@@ -30,7 +30,7 @@ func (l *listNode) HasCycle(head *listNode) bool {
 	return true
 }
 
-// NextNode sets next node for listNode
+// SetNextNode sets next node for listNode
 func (l *listNode) SetNextNode(list *listNode) *listNode {
 	l.Next = list
 	return l.Next

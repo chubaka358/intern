@@ -1,8 +1,9 @@
 package num_islands
 
 import (
-	"github.com/google/go-cmp/cmp"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestNumIslands(t *testing.T) {

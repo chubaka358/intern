@@ -5,8 +5,8 @@ import (
 	"sync"
 )
 
-// foremaner provides foreman interface
-type foremaner interface {
+// Foremaner provides foreman interface
+type Foremaner interface {
 	accept(employees int, ch <-chan string, wg *sync.WaitGroup)
 }
 

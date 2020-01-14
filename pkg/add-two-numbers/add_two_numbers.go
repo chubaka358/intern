@@ -60,7 +60,7 @@ func (l *listNode) AddTwoNumbers(l1 *listNode, l2 *listNode) *listNode {
 	return head.next
 }
 
-// NextNode sets next node for listNode
+// SetNextNode sets next node for listNode
 func (l *listNode) SetNextNode(list *listNode) *listNode {
 	l.next = list
 	return l.next

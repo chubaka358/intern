@@ -1,8 +1,9 @@
 package two_sum
 
 import (
-	"github.com/google/go-cmp/cmp"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestTwoSum(t *testing.T) {

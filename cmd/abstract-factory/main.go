@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/abstract-factory"
+	"github.com/jayhrat/intern/pkg/abstract-factory"
 )
 
 func main() {

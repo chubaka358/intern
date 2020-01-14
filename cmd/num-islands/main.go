@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/num-islands"
+	"github.com/jayhrat/intern/pkg/num-islands"
 )
 
 func main() {

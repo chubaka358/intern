@@ -6,7 +6,7 @@ Memento pattern implementation
 package main
 
 import (
-	"github.com/chubaka358/intern/pkg/memento"
+	"github.com/jayhrat/intern/pkg/memento"
 )
 
 func main() {

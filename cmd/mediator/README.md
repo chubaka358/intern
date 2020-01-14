@@ -7,7 +7,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/mediator"
+	"github.com/jayhrat/intern/pkg/mediator"
 )
 
 func main() {
@@ -20,4 +20,5 @@ func main() {
 	fmt.Println(checkbox.SendData())
 	fmt.Println(button.SendData())
 }
+
 ```

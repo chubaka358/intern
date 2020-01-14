@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/add-two-numbers"
+	"github.com/jayhrat/intern/pkg/add-two-numbers"
 )
 
 func main() {

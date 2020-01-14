@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/factory-method"
+	"github.com/jayhrat/intern/pkg/factory-method"
 )
 
 func main() {

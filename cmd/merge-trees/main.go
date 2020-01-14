@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/merge-trees"
+	"github.com/jayhrat/intern/pkg/merge-trees"
 )
 
 func main() {

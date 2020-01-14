@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/chubaka358/intern/pkg/worker-pool"
+	"github.com/jayhrat/intern/pkg/worker-pool"
 )
 
 func main() {

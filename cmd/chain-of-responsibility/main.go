@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/chain-of-responsibility"
+	"github.com/jayhrat/intern/pkg/chain-of-responsibility"
 )
 
 func main() {

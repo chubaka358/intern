@@ -9,24 +9,28 @@ type actionMediator struct {
 
 // Notify implementation
 func (a *actionMediator) Notify(msg string) string {
-	if msg == "button message" {
+	var answer string
+	switch msg {
+	case "button message":
 		a.textField.sent = true
 		a.checkbox.sent = true
-		return "form has been submitted"
-	} else if msg == "textField message" {
+		answer = "form has been submitted"
+	case "textField message":
 		if a.textField.sent {
 			return "already sent"
 		}
 		a.textField.dataFilled = true
-		return "data was filled"
-	} else if msg == "checkbox message" {
+		answer = "data was filled"
+	case "checkbox message":
 		if a.textField.sent {
 			return "already sent"
 		}
 		a.checkbox.state = true
-		return "checkbox was checked"
+		answer = "checkbox was checked"
+	default:
+		answer = ""
 	}
-	return ""
+	return answer
 }
 
 // Connect connects all colleagues

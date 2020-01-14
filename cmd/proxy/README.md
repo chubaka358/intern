@@ -4,7 +4,7 @@
 ```go
 package main
 
-import "github.com/chubaka358/intern/pkg/proxy"
+import "github.com/jayhrat/intern/pkg/proxy"
 
 func main() {
 	dao := proxy.NewDAOProxy()

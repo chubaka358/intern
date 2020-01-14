@@ -50,7 +50,7 @@ func (d *daoProxy) createConnection() {
 	}
 }
 
-// NewDAOProxy returbs new daoProxy
+// NewDAOProxy returns new daoProxy
 func NewDAOProxy() *daoProxy {
 	return &daoProxy{}
 }

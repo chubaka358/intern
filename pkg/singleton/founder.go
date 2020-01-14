@@ -9,6 +9,7 @@ var (
 	once     sync.Once
 )
 
+// Founderer provides founder interface
 type Founderer interface {
 	SetName(name string)
 	GetName() string

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/visitor"
+	"github.com/jayhrat/intern/pkg/visitor"
 )
 
 func main() {

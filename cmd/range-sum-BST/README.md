@@ -14,7 +14,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chubaka358/intern/pkg/range_sum_BST"
+	"github.com/jayhrat/intern/pkg/range_sum_BST"
 )
 
 func main() {

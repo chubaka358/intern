@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/jayhrat/intern/pkg/range_sum_BST"
+	"github.com/jayhrat/intern/pkg/range-sum-BST"
 )
 
 func main() {

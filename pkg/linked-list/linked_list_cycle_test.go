@@ -43,8 +43,8 @@ func TestHasCycle(t *testing.T) {
 	}
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			list := NewListNode(0)
-			got := list.HasCycle(tc.listNode)
+			cycle := NewCycle()
+			got := cycle.HasCycle(tc.listNode)
 			if got != tc.want {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}

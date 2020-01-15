@@ -1,11 +1,5 @@
 package linked_list
 
-// ListNoder provides listNode interface
-type ListNoder interface {
-	HasCycle(head *listNode) bool
-	NextNode(list *listNode) *listNode
-}
-
 // listNode is definition for singly-linked list.
 type listNode struct {
 	Val  int

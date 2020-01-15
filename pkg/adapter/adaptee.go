@@ -10,6 +10,6 @@ func (a *adaptee) SendXML() string {
 }
 
 // NewAdaptee returns new adaptee
-func NewAdaptee() *adaptee {
+func NewAdaptee() XMLer {
 	return &adaptee{}
 }

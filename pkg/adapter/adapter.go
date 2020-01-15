@@ -8,7 +8,7 @@ import (
 
 // adapter implements adapter
 type adapter struct {
-	*adaptee
+	adaptee XMLer
 }
 
 // SendJSON returns JSON-formatted data
@@ -18,7 +18,7 @@ func (a *adapter) SendJSON() string {
 }
 
 // NewAdapter returns new adapter for adaptee
-func NewAdapter(adaptee *adaptee) *adapter {
+func NewAdapter(adaptee XMLer) JSONer {
 	return &adapter{
 		adaptee: adaptee,
 	}

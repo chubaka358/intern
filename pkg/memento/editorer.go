@@ -8,6 +8,6 @@ type Editorer interface {
 	GetText() string
 	GetCursorPos() int
 	GetCurrentFont() int
-	CreateMemento() *memento
-	SetMemento(memento *memento)
+	CreateMemento() Mementoer
+	SetMemento(memento Mementoer)
 }

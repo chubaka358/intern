@@ -38,7 +38,7 @@ func (e *editor) GetCurrentFont() int {
 }
 
 // CreateMemento creates and returns memento with current editor state
-func (e *editor) CreateMemento() *memento {
+func (e *editor) CreateMemento() Mementoer {
 	return &memento{
 		text:        e.text,
 		cursorPos:   e.cursorPos,
@@ -47,13 +47,13 @@ func (e *editor) CreateMemento() *memento {
 }
 
 // SetMemento sets editor's state equal to memento state
-func (e *editor) SetMemento(memento *memento) {
+func (e *editor) SetMemento(memento Mementoer) {
 	e.text = memento.getText()
 	e.cursorPos = memento.getCursorPos()
 	e.currentFont = memento.getCurrentFont()
 }
 
 // NewEditor returns new editor
-func NewEditor() *editor {
+func NewEditor() Editorer {
 	return &editor{}
 }

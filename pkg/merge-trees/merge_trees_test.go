@@ -72,7 +72,8 @@ func TestMergeTrees(t *testing.T) {
 				},
 			},
 		}
-		got := tree1.MergeTrees(tree1, tree2)
+		merger := NewMerge()
+		got := merger.MergeTrees(tree1, tree2)
 		diff := cmp.Diff(want, got)
 		if diff != "" {
 			t.Fatalf(diff)
@@ -80,8 +81,8 @@ func TestMergeTrees(t *testing.T) {
 	})
 
 	t.Run("empty trees", func(t *testing.T) {
-		tree := NewTreeNode()
-		got := tree.MergeTrees(nil, nil)
+		merger := NewMerge()
+		got := merger.MergeTrees(nil, nil)
 		if got != nil {
 			t.Fatalf("want %v, got %v", nil, got)
 		}
@@ -105,8 +106,9 @@ func TestMergeTrees(t *testing.T) {
 				Right: nil,
 			},
 		}
-		got1 := tree.MergeTrees(tree, nil)
-		got2 := tree.MergeTrees(nil, tree)
+		merger := NewMerge()
+		got1 := merger.MergeTrees(tree, nil)
+		got2 := merger.MergeTrees(nil, tree)
 		diff1 := cmp.Diff(tree, got1)
 		diff2 := cmp.Diff(tree, got2)
 		if diff1 != "" {

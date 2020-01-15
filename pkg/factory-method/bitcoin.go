@@ -37,7 +37,7 @@ func (c *bitcoin) Balance() int {
 }
 
 // NewBitcoin create and return new bitcoin with bitcoin.amount = 0
-func NewBitcoin() *bitcoin {
+func NewBitcoin() Producter {
 	return &bitcoin{
 		amount: 0,
 	}

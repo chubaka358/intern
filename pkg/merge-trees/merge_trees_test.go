@@ -9,66 +9,66 @@ import (
 func TestMergeTrees(t *testing.T) {
 	t.Run("simple test", func(t *testing.T) {
 		tree1 := &treeNode{
-			Val: 1,
-			Left: &treeNode{
-				Val: 3,
-				Left: &treeNode{
-					Val:   5,
-					Left:  nil,
-					Right: nil,
+			val: 1,
+			left: &treeNode{
+				val: 3,
+				left: &treeNode{
+					val:   5,
+					left:  nil,
+					right: nil,
 				},
-				Right: nil,
+				right: nil,
 			},
-			Right: &treeNode{
-				Val:   2,
-				Left:  nil,
-				Right: nil,
+			right: &treeNode{
+				val:   2,
+				left:  nil,
+				right: nil,
 			},
 		}
 
 		tree2 := &treeNode{
-			Val: 2,
-			Left: &treeNode{
-				Val:  1,
-				Left: nil,
-				Right: &treeNode{
-					Val:   4,
-					Left:  nil,
-					Right: nil,
+			val: 2,
+			left: &treeNode{
+				val:  1,
+				left: nil,
+				right: &treeNode{
+					val:   4,
+					left:  nil,
+					right: nil,
 				},
 			},
-			Right: &treeNode{
-				Val:  3,
-				Left: nil,
-				Right: &treeNode{
-					Val:   7,
-					Left:  nil,
-					Right: nil,
+			right: &treeNode{
+				val:  3,
+				left: nil,
+				right: &treeNode{
+					val:   7,
+					left:  nil,
+					right: nil,
 				},
 			},
 		}
 		want := &treeNode{
-			Val: 3,
-			Left: &treeNode{
-				Val: 4,
-				Left: &treeNode{
-					Val:   5,
-					Left:  nil,
-					Right: nil,
+			val: 3,
+			left: &treeNode{
+				val: 4,
+				left: &treeNode{
+					val:   5,
+					left:  nil,
+					right: nil,
 				},
-				Right: &treeNode{
-					Val:   4,
-					Left:  nil,
-					Right: nil,
+				right: &treeNode{
+					val:   4,
+					left:  nil,
+					right: nil,
 				},
 			},
-			Right: &treeNode{
-				Val:  5,
-				Left: nil,
-				Right: &treeNode{
-					Val:   7,
-					Left:  nil,
-					Right: nil,
+			right: &treeNode{
+				val:  5,
+				left: nil,
+				right: &treeNode{
+					val:   7,
+					left:  nil,
+					right: nil,
 				},
 			},
 		}
@@ -90,20 +90,20 @@ func TestMergeTrees(t *testing.T) {
 
 	t.Run("empty and non-emtpy tree", func(t *testing.T) {
 		tree := &treeNode{
-			Val: 1,
-			Left: &treeNode{
-				Val: 3,
-				Left: &treeNode{
-					Val:   5,
-					Left:  nil,
-					Right: nil,
+			val: 1,
+			left: &treeNode{
+				val: 3,
+				left: &treeNode{
+					val:   5,
+					left:  nil,
+					right: nil,
 				},
-				Right: nil,
+				right: nil,
 			},
-			Right: &treeNode{
-				Val:   2,
-				Left:  nil,
-				Right: nil,
+			right: &treeNode{
+				val:   2,
+				left:  nil,
+				right: nil,
 			},
 		}
 		merger := NewMerge()

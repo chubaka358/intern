@@ -12,9 +12,9 @@ func (m *merge) MergeTrees(t1 *treeNode, t2 *treeNode) *treeNode {
 	if t2 == nil {
 		return t1
 	}
-	t1.Val += t2.Val
-	t1.Left = m.MergeTrees(t1.Left, t2.Left)
-	t1.Right = m.MergeTrees(t1.Right, t2.Right)
+	t1.val += t2.val
+	t1.left = m.MergeTrees(t1.left, t2.left)
+	t1.right = m.MergeTrees(t1.right, t2.right)
 	return t1
 }
 

@@ -4,32 +4,32 @@ import "testing"
 
 func TestHasCycle(t *testing.T) {
 	list1 := &listNode{
-		Val: 3,
-		Next: &listNode{
-			Val: 2,
-			Next: &listNode{
-				Val: 0,
-				Next: &listNode{
-					Val:  -4,
-					Next: nil,
+		val: 3,
+		next: &listNode{
+			val: 2,
+			next: &listNode{
+				val: 0,
+				next: &listNode{
+					val:  -4,
+					next: nil,
 				},
 			},
 		},
 	}
-	list1.Next.Next.Next.Next = list1.Next
+	list1.next.next.next.next = list1.next
 
 	list2 := &listNode{
-		Val: 1,
-		Next: &listNode{
-			Val:  2,
-			Next: nil,
+		val: 1,
+		next: &listNode{
+			val:  2,
+			next: nil,
 		},
 	}
-	list2.Next.Next = list2
+	list2.next.next = list2
 
 	list3 := &listNode{
-		Val:  1,
-		Next: nil,
+		val:  1,
+		next: nil,
 	}
 
 	tests := map[string]struct {

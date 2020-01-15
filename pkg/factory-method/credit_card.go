@@ -38,5 +38,7 @@ func (c *creditCard) Balance() int {
 
 // NewCreditCard create and return new creditCard with creditCard.amount = 0
 func NewCreditCard() *creditCard {
-	return &creditCard{amount: 0}
+	return &creditCard{
+		amount: 0,
+	}
 }

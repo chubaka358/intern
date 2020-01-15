@@ -32,5 +32,7 @@ func (w *workerPool) StartWorkerPool() {
 
 // NewWorkerPool creates and returns new workerPool
 func NewWorkerPool(employees int) WorkerPooler {
-	return &workerPool{employees}
+	return &workerPool{
+		employees: employees,
+	}
 }

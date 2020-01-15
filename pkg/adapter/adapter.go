@@ -19,5 +19,7 @@ func (a *adapter) SendJSON() string {
 
 // NewAdapter returns new adapter for adaptee
 func NewAdapter(adaptee *adaptee) *adapter {
-	return &adapter{adaptee}
+	return &adapter{
+		adaptee: adaptee,
+	}
 }

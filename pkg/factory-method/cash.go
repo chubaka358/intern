@@ -38,5 +38,7 @@ func (c *cash) Replenish(amount int) error {
 
 // NewCash create and return new cash with cash.amount = 0
 func NewCash() *cash {
-	return &cash{amount: 0}
+	return &cash{
+		amount: 0,
+	}
 }

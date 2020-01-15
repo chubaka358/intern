@@ -31,5 +31,8 @@ func (l *listNode) SetNextNode(list ListNoder) ListNoder {
 
 // NewListNode returns new listNode
 func NewListNode(val int) ListNoder {
-	return &listNode{val, nil}
+	return &listNode{
+		val:  val,
+		next: nil,
+	}
 }

@@ -15,6 +15,6 @@ func (t *teleport) Accept(v Visitor) string {
 }
 
 // NewTeleport creates and returns new teleport
-func NewTeleport() *teleport {
+func NewTeleport() Place {
 	return &teleport{}
 }

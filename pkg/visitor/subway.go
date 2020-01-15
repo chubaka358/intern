@@ -15,6 +15,6 @@ func (s *subway) Accept(v Visitor) string {
 }
 
 // NewSubway creates and returns new subway
-func NewSubway() *subway {
+func NewSubway() Place {
 	return &subway{}
 }

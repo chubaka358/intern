@@ -32,6 +32,6 @@ func (e *employee) work(i int, ch chan<- string) {
 }
 
 // NewEmployee creates new employee and returns pointer to it
-func NewEmployee() *employee {
+func NewEmployee() Employeer {
 	return &employee{}
 }

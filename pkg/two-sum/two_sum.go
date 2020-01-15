@@ -31,6 +31,6 @@ func (t *twoSum) TwoSum(nums []int, target int) []int {
 }
 
 // NewTwoSum returns new twoSum
-func NewTwoSum() *twoSum {
+func NewTwoSum() TwoSumer {
 	return &twoSum{}
 }

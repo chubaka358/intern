@@ -15,6 +15,6 @@ func (a *airport) Accept(v Visitor) string {
 }
 
 // NewAirport creates and returns new airport
-func NewAirport() *airport {
+func NewAirport() Place {
 	return &airport{}
 }

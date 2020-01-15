@@ -20,6 +20,6 @@ func (m *man) VisitTeleport(p *teleport) string {
 }
 
 // NewMan creates and returns new man
-func NewMan() *man {
+func NewMan() Visitor {
 	return &man{}
 }

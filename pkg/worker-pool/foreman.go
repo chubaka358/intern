@@ -25,6 +25,6 @@ func (f *foreman) accept(employees int, ch <-chan string, wg *sync.WaitGroup) {
 }
 
 // NewForeman creates new foreman and returns pointer to it
-func NewForeman() *foreman {
+func NewForeman() Foremaner {
 	return &foreman{}
 }

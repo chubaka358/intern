@@ -1,5 +1,10 @@
 package visitor
 
+type Transport interface {
+	Add(p Place)
+	Accept(v Visitor) string
+}
+
 // transport implements a collection of places to visit
 type transport struct {
 	places []Place
@@ -20,6 +25,6 @@ func (t *transport) Accept(v Visitor) string {
 }
 
 // NewTransport creates and returns new transport
-func NewTransport() *transport {
+func NewTransport() Transport {
 	return &transport{}
 }

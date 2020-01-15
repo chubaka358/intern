@@ -33,7 +33,7 @@ func (t *treeNode) dfs(L int, R int, rangeSum *int) {
 }
 
 // NewTreeNode creates new treeNode and returns pointer to treeNode
-func NewTreeNode(val int, left *treeNode, right *treeNode) *treeNode {
+func NewTreeNode(val int, left *treeNode, right *treeNode) TreeNoder {
 	return &treeNode{
 		val:   val,
 		left:  left,

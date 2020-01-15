@@ -3,7 +3,7 @@ package add_two_numbers
 import "testing"
 
 func TestAddTwoNumbers(t *testing.T) {
-	isEqual := func(want *listNode, got *listNode) bool {
+	isEqual := func(want ListNoder, got ListNoder) bool {
 		for want != nil && got != nil {
 			if want.GetValue() != got.GetValue() {
 				return false

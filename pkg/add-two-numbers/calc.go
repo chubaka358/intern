@@ -5,8 +5,8 @@ type calc struct {
 }
 
 // AddTwoNumbers returns the result of adding two numbers
-func (c *calc) AddTwoNumbers(l1 *listNode, l2 *listNode) *listNode {
-	head := &listNode{}
+func (c *calc) AddTwoNumbers(l1 ListNoder, l2 ListNoder) ListNoder {
+	head := NewListNode(0)
 	p := l1
 	q := l2
 	curr := head
@@ -14,30 +14,26 @@ func (c *calc) AddTwoNumbers(l1 *listNode, l2 *listNode) *listNode {
 	for p != nil || q != nil {
 		sum := 0
 		if p != nil {
-			sum += p.val
+			sum += p.GetValue()
 		}
 		if q != nil {
-			sum += q.val
+			sum += q.GetValue()
 		}
 		sum += carry
 		carry = sum / 10
-		curr.next = &listNode{
-			val: sum % 10,
-		}
-		curr = curr.next
+		curr.SetNextNode(NewListNode(sum % 10))
+		curr = curr.GetNext()
 		if p != nil {
-			p = p.next
+			p = p.GetNext()
 		}
 		if q != nil {
-			q = q.next
+			q = q.GetNext()
 		}
 	}
 	if carry > 0 {
-		curr.next = &listNode{
-			val: 1,
-		}
+		curr.SetNextNode(NewListNode(1))
 	}
-	return head.next
+	return head.GetNext()
 }
 
 // NewCalc return new calc

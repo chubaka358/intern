@@ -1,5 +1,6 @@
 package linked_list
 
+// Cycler provides cycle interface
 type Cycler interface {
-	HasCycle(head *listNode) bool
+	HasCycle(head ListNoder) bool
 }

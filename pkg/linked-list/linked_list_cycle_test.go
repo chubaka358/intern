@@ -3,37 +3,20 @@ package linked_list
 import "testing"
 
 func TestHasCycle(t *testing.T) {
-	list1 := &listNode{
-		val: 3,
-		next: &listNode{
-			val: 2,
-			next: &listNode{
-				val: 0,
-				next: &listNode{
-					val:  -4,
-					next: nil,
-				},
-			},
-		},
-	}
-	list1.next.next.next.next = list1.next
+	list1 := NewListNode(3)
+	list1.SetNextNode(NewListNode(2)).
+		SetNextNode(NewListNode(0)).
+		SetNextNode(NewListNode(-4))
+	list1.GetNext().GetNext().GetNext().SetNextNode(list1.GetNext())
 
-	list2 := &listNode{
-		val: 1,
-		next: &listNode{
-			val:  2,
-			next: nil,
-		},
-	}
-	list2.next.next = list2
+	list2 := NewListNode(1)
+	list2.SetNextNode(NewListNode(2))
+	list2.GetNext().SetNextNode(list2)
 
-	list3 := &listNode{
-		val:  1,
-		next: nil,
-	}
+	list3 := NewListNode(1)
 
 	tests := map[string]struct {
-		listNode *listNode
+		listNode ListNoder
 		want     bool
 	}{
 		"example1": {list1, true},

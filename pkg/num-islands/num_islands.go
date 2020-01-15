@@ -42,6 +42,6 @@ func (i *islandsCount) traverseIsland(grid [][]byte, row int, col int) {
 }
 
 // NewIslandCount returns new islandCount
-func NewIslandsCount() *islandsCount {
+func NewIslandsCounter() IslandsCounter {
 	return &islandsCount{}
 }

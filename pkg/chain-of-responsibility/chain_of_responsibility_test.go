@@ -7,7 +7,7 @@ import (
 )
 
 func TestHandler_SendRequest(t *testing.T) {
-	handlers := NewFirstHandler().SetNextHandler(NewSecondHandler().SetNextHandler(NewThirdHandler().SetNextHandler(NewFourthHandler())))
+	handlers := NewFirstHandler(NewSecondHandler(NewThirdHandler(NewFourthHandler(NewTerminator()))))
 	t.Run("data type 1", func(t *testing.T) {
 		want := "Using data type 1 handler"
 		got := handlers.SendRequest("data type 1")

@@ -13,10 +13,11 @@ import (
 )
 
 func main() {
-	handlers := chain_of_responsibility.NewFirstHandler().
-		SetNextHandler(chain_of_responsibility.NewSecondHandler().
-			SetNextHandler(chain_of_responsibility.NewThirdHandler().
-				SetNextHandler(chain_of_responsibility.NewFourthHandler())))
+	handlers := chain_of_responsibility.NewFirstHandler(
+		chain_of_responsibility.NewSecondHandler(
+			chain_of_responsibility.NewThirdHandler(
+				chain_of_responsibility.NewFourthHandler(
+					chain_of_responsibility.NewTerminator()))))
 	fmt.Println(handlers.SendRequest("data type 3"))
 }
 ```

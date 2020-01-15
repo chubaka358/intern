@@ -2,26 +2,20 @@ package chain_of_responsibility
 
 // fourthHandler implements fourth handler
 type fourthHandler struct {
-	Next Handler
+	next Handler
 }
 
 // SendRequest implementation for fourthHandler
-func (h *fourthHandler) SendRequest(data string) (result string) {
+func (h *fourthHandler) SendRequest(data string) string {
 	if data == "data type 4" {
-		result = "Using data type 4 handler"
-	} else if h.Next != nil {
-		result = h.Next.SendRequest(data)
+		return "Using data type 4 handler"
 	}
-	return
-}
-
-// SetNextHandler set next handler for fourthHandler
-func (h *fourthHandler) SetNextHandler(n Handler) Handler {
-	h.Next = n
-	return h
+	return h.next.SendRequest(data)
 }
 
 // NewFourthHandler return new fourthHandler
-func NewFourthHandler() Handler {
-	return &fourthHandler{}
+func NewFourthHandler(next Handler) Handler {
+	return &fourthHandler{
+		next: next,
+	}
 }

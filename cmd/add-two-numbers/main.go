@@ -3,22 +3,33 @@ package main
 import (
 	"fmt"
 
-	"github.com/jayhrat/intern/pkg/add-two-numbers"
+	"github.com/jayhrat/intern/pkg/add-two-numbers/calculator"
 )
 
 func main() {
-	calc := add_two_numbers.NewCalc()
+	calc := calculator.NewCalculator()
 
-	list1 := add_two_numbers.NewListNode(1)
-	list1.SetNextNode(add_two_numbers.NewListNode(2)).SetNextNode(add_two_numbers.NewListNode(3))
-
-	list2 := add_two_numbers.NewListNode(6)
-	list2.SetNextNode(add_two_numbers.NewListNode(0)).SetNextNode(add_two_numbers.NewListNode(1))
-
-	result := calc.AddTwoNumbers(list1, list2)
-	for ; result != nil; result = result.GetNext() {
-		fmt.Print(result.GetValue())
-		fmt.Print("->")
+	list1 := &calculator.Node{
+		Val: 1,
+		Next: &calculator.Node{
+			Val: 2,
+			Next: &calculator.Node{
+				Val:  3,
+				Next: nil,
+			},
+		},
 	}
-	fmt.Print("<nil>")
+
+	list2 := &calculator.Node{
+		Val: 6,
+		Next: &calculator.Node{
+			Val: 0,
+			Next: &calculator.Node{
+				Val:  1,
+				Next: nil,
+			},
+		},
+	}
+
+	result := calc.Sum(list1, list2)
 }

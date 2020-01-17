@@ -20,8 +20,7 @@ func TestAddTwoNumbers(t *testing.T) {
 	}
 	t.Run("simple test", func(t *testing.T) {
 		calc := NewCalculator()
-		//list1 := NewListNode(2)
-		//list1.Set(NewListNode(4)).Set(NewListNode(3))
+
 		list1 := &Node{
 			Val: 2,
 			Next: &Node{
@@ -32,8 +31,7 @@ func TestAddTwoNumbers(t *testing.T) {
 				},
 			},
 		}
-		//list2 := NewListNode(5)
-		//list2.Set(NewListNode(6)).Set(NewListNode(4))
+
 		list2 := &Node{
 			Val: 5,
 			Next: &Node{
@@ -44,8 +42,7 @@ func TestAddTwoNumbers(t *testing.T) {
 				},
 			},
 		}
-		//want := NewListNode(7)
-		//want.Set(NewListNode(0)).Set(NewListNode(8))
+
 		want := &Node{
 			Val: 7,
 			Next: &Node{
@@ -56,15 +53,14 @@ func TestAddTwoNumbers(t *testing.T) {
 				},
 			},
 		}
-		got := calc.AddTwoNumbers(list1, list2)
-		if !isEqual(want, got) {
+
+		got := calc.Sum(list1, list2)
+		if !isEqual(want, &got) {
 			t.Fatalf("want %v, got %v", want.Val, got.Val)
 		}
 	})
 	t.Run("hard test", func(t *testing.T) {
 		calc := NewCalculator()
-		//list1 := NewListNode(9)
-		//list1.Set(NewListNode(9))
 		list1 := &Node{
 			Val: 9,
 			Next: &Node{
@@ -78,8 +74,6 @@ func TestAddTwoNumbers(t *testing.T) {
 			Next: nil,
 		}
 
-		//want := NewListNode(0)
-		//want.Set(NewListNode(0)).Set(NewListNode(1))
 		want := &Node{
 			Val: 0,
 			Next: &Node{
@@ -90,9 +84,9 @@ func TestAddTwoNumbers(t *testing.T) {
 				},
 			},
 		}
-		got := calc.AddTwoNumbers(list1, list2)
+		got := calc.Sum(list1, list2)
 
-		if !isEqual(want, got) {
+		if !isEqual(want, &got) {
 			t.Fatalf("want %v, got %v", want.Val, got.Val)
 		}
 	})

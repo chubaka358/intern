@@ -1,42 +1,50 @@
-package add_two_numbers
+package calculator
 
-// calc implements Calcer
-type calc struct {
+// Calculator provides calculator interface
+type Calculator interface {
+	Sum(n1, n2 *Node) (head Node)
+}
+
+// calculator implements Calculator
+type calculator struct {
 }
 
 // AddTwoNumbers returns the result of adding two numbers
-func (c *calc) AddTwoNumbers(l1 ListNoder, l2 ListNoder) ListNoder {
-	head := NewListNode(0)
-	p := l1
-	q := l2
-	curr := head
+func (c *calculator) Sum(n1, n2 *Node) (head Node) {
+	curr := &head
 	carry := 0
-	for p != nil || q != nil {
+	for n1 != nil || n2 != nil {
 		sum := 0
-		if p != nil {
-			sum += p.GetValue()
+		if n1 != nil {
+			sum += n1.Val
 		}
-		if q != nil {
-			sum += q.GetValue()
+		if n2 != nil {
+			sum += n2.Val
 		}
 		sum += carry
 		carry = sum / 10
-		curr.SetNextNode(NewListNode(sum % 10))
-		curr = curr.GetNext()
-		if p != nil {
-			p = p.GetNext()
+		curr.Next = &Node{
+			Val:  sum % 10,
+			Next: nil,
 		}
-		if q != nil {
-			q = q.GetNext()
+		curr = curr.Next
+		if n1 != nil {
+			n1 = n1.Next
+		}
+		if n2 != nil {
+			n2 = n2.Next
 		}
 	}
 	if carry > 0 {
-		curr.SetNextNode(NewListNode(1))
+		curr.Next = &Node{
+			Val:  1,
+			Next: nil,
+		}
 	}
-	return head.GetNext()
+	return *head.Next
 }
 
-// NewCalc return new calc
-func NewCalc() Calcer {
-	return &calc{}
+// NewCalculator return new calculator
+func NewCalculator() Calculator {
+	return &calculator{}
 }

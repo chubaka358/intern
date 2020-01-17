@@ -15,7 +15,7 @@ func TestVisitor(t *testing.T) {
 	storage.Add(transportation.NewTeleport())
 
 	want := "using airport...using subway...using teleport..."
-	got := storage.Accept(visitor.NewMan())
+	got := storage.Accept(visitor.NewVisitor())
 	if got != want {
 		t.Fatalf("want %q, got %q", want, got)
 	}

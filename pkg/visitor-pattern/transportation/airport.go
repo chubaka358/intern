@@ -4,7 +4,7 @@ package transportation
 type airport struct {
 }
 
-// UseAirport implementation
+// Use implementation
 func (a *airport) Use() string {
 	return "using airport..."
 }

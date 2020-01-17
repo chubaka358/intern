@@ -4,7 +4,7 @@ package transportation
 type teleport struct {
 }
 
-// UseTeleport implementation
+// Use implementation
 func (t *teleport) Use() string {
 	return "using teleport..."
 }

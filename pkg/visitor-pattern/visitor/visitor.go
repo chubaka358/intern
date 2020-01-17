@@ -2,7 +2,7 @@ package visitor
 
 import "github.com/jayhrat/intern/pkg/visitor-pattern/transportation"
 
-// Visitor provides a visitor-pattern interface
+// Visitor provides a visitor interface
 type Visitor interface {
 	Visit(p transportation.Transport) string
 }
@@ -16,7 +16,7 @@ func (m *visitor) Visit(p transportation.Transport) string {
 	return p.Use()
 }
 
-// NewMan creates and returns new visitor
-func NewMan() Visitor {
+// NewVisitor creates and returns new visitor-pattern
+func NewVisitor() Visitor {
 	return &visitor{}
 }

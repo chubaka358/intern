@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/jayhrat/intern/pkg/abstract-factory"
+	"github.com/jayhrat/intern/pkg/abstract-factory/modern"
 )
 
 func main() {
-	factory := abstract_factory.NewModernFurnitureFactory()
+	factory := modern.NewModernFurnitureFactory()
 	sofa := factory.CreateSofa()
 	fmt.Println(sofa.LieDown())
 }

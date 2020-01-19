@@ -1,4 +1,9 @@
-package abstract_factory
+package modern
+
+// sofa provides modernSofa interface
+type sofa interface {
+	LieDown() string
+}
 
 // modernSofa implements modern sofa
 type modernSofa struct {

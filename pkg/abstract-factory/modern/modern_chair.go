@@ -1,4 +1,9 @@
-package abstract_factory
+package modern
+
+// chair provides modernChair interface
+type chair interface {
+	SitDown() string
+}
 
 // modernChair implements modern chair
 type modernChair struct {

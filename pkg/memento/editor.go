@@ -1,5 +1,17 @@
 package memento
 
+// Editor provides editor interface
+type Editor interface {
+	SetText(text string)
+	SetCursorPos(cursorPos int)
+	SetCurrentFont(currentFont int)
+	GetText() string
+	GetCursorPos() int
+	GetCurrentFont() int
+	CreateMemento() Memento
+	SetMemento(memento Memento)
+}
+
 // editor implements editor
 type editor struct {
 	text        string
@@ -38,7 +50,7 @@ func (e *editor) GetCurrentFont() int {
 }
 
 // CreateMemento creates and returns memento with current editor state
-func (e *editor) CreateMemento() Mementoer {
+func (e *editor) CreateMemento() Memento {
 	return &memento{
 		text:        e.text,
 		cursorPos:   e.cursorPos,
@@ -47,13 +59,13 @@ func (e *editor) CreateMemento() Mementoer {
 }
 
 // SetMemento sets editor's state equal to memento state
-func (e *editor) SetMemento(memento Mementoer) {
+func (e *editor) SetMemento(memento Memento) {
 	e.text = memento.getText()
 	e.cursorPos = memento.getCursorPos()
 	e.currentFont = memento.getCurrentFont()
 }
 
 // NewEditor returns new editor
-func NewEditor() Editorer {
+func NewEditor() Editor {
 	return &editor{}
 }

@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/jayhrat/intern/pkg/adapter"
+	"github.com/jayhrat/intern/pkg/adapter/json"
+	"github.com/jayhrat/intern/pkg/adapter/xml"
 )
 
 func main() {
-	adaptee := adapter.NewAdaptee()
-	adapter := adapter.NewAdapter(adaptee)
-	fmt.Println(adapter.SendJSON())
+	xmlSender := xml.NewXMLSender()
+	jsonSender := json.NewJSONSender(xmlSender)
+	fmt.Println(jsonSender.Send())
 }

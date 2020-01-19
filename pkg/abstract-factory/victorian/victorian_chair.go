@@ -1,4 +1,9 @@
-package abstract_factory
+package victorian
+
+// chair provides victorianChair interface
+type chair interface {
+	SitDown() string
+}
 
 // victorianChair implements victorian chair
 type victorianChair struct {

@@ -1,5 +1,7 @@
 package transportation
 
+import "github.com/jayhrat/intern/pkg/visitor-pattern/visitor"
+
 // subway implements the Transport interface
 type subway struct {
 }
@@ -10,7 +12,7 @@ func (s *subway) Use() string {
 }
 
 // Accept implementation
-func (s *subway) Accept(v visitor) string {
+func (s *subway) Accept(v visitor.Visitor) string {
 	return v.Visit(s)
 }
 

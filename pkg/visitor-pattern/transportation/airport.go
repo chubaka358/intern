@@ -1,5 +1,7 @@
 package transportation
 
+import "github.com/jayhrat/intern/pkg/visitor-pattern/visitor"
+
 // airport implements the Transport interface
 type airport struct {
 }
@@ -10,7 +12,7 @@ func (a *airport) Use() string {
 }
 
 // Accept implementation
-func (a *airport) Accept(v visitor) string {
+func (a *airport) Accept(v visitor.Visitor) string {
 	return v.Visit(a)
 }
 

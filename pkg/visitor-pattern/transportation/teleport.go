@@ -1,5 +1,7 @@
 package transportation
 
+import "github.com/jayhrat/intern/pkg/visitor-pattern/visitor"
+
 // teleport implements the Transport interface
 type teleport struct {
 }
@@ -10,7 +12,7 @@ func (t *teleport) Use() string {
 }
 
 // Accept implementation
-func (t *teleport) Accept(v visitor) string {
+func (t *teleport) Accept(v visitor.Visitor) string {
 	return v.Visit(t)
 }
 

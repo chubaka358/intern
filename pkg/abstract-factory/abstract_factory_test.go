@@ -2,11 +2,14 @@ package abstract_factory
 
 import (
 	"testing"
+
+	"github.com/jayhrat/intern/pkg/abstract-factory/modern"
+	"github.com/jayhrat/intern/pkg/abstract-factory/victorian"
 )
 
 func TestFactory(t *testing.T) {
-	modernFactory := NewModernFurnitureFactory()
-	victorianFactory := NewVictorianFurnitureFactory()
+	modernFactory := modern.NewModernFurnitureFactory()
+	victorianFactory := victorian.NewVictorianFurnitureFactory()
 
 	wantModernChair := "Sitting on the modern chair"
 	wantModernCoffeeTable := "Put item on the modernCoffeeTable"
@@ -27,7 +30,7 @@ func TestFactory(t *testing.T) {
 	if got := modernChair.SitDown(); wantModernChair != got {
 		t.Errorf("expected %q, got %q", wantModernChair, got)
 	}
-	if got := modernCoffeeTable.PutItem(); wantModernCoffeeTable != got {
+	if got := modernCoffeeTable.Put(); wantModernCoffeeTable != got {
 		t.Errorf("expected %q, got %q", wantModernCoffeeTable, got)
 	}
 	if got := modernSofa.LieDown(); wantModernSofa != got {
@@ -37,7 +40,7 @@ func TestFactory(t *testing.T) {
 	if got := victorianChair.SitDown(); wantVictorianChair != got {
 		t.Errorf("expected %q, got %q", wantVictorianChair, got)
 	}
-	if got := victorianCoffeeTable.PutItem(); wantVictorianCoffeeTable != got {
+	if got := victorianCoffeeTable.Put(); wantVictorianCoffeeTable != got {
 		t.Errorf("expected %q, got %q", wantVictorianCoffeeTable, got)
 	}
 	if got := victorianSofa.LieDown(); wantVictorianSofa != got {

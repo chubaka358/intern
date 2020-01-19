@@ -1,5 +1,12 @@
 package memento
 
+// Memento provides memento interface
+type Memento interface {
+	getText() string
+	getCursorPos() int
+	getCurrentFont() int
+}
+
 // memento implements memento
 type memento struct {
 	text        string

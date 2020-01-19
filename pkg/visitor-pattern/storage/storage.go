@@ -1,16 +1,14 @@
 package storage
 
-import "github.com/jayhrat/intern/pkg/visitor-pattern/transportation"
-
-// visitor provides visitor interface
-type visitor interface {
-	Visit(p transportation.Transport) string
-}
+import (
+	"github.com/jayhrat/intern/pkg/visitor-pattern/transportation"
+	"github.com/jayhrat/intern/pkg/visitor-pattern/visitor"
+)
 
 // Storage provides storage interface
 type Storage interface {
 	Add(p transportation.Transport)
-	Accept(v visitor) string
+	Accept(v visitor.Visitor) string
 }
 
 // storage implements a collection of places to visit
@@ -24,7 +22,7 @@ func (t *storage) Add(p transportation.Transport) {
 }
 
 // Accept implements visit to all places in the transportation
-func (t *storage) Accept(v visitor) string {
+func (t *storage) Accept(v visitor.Visitor) string {
 	var result string
 	for _, place := range t.places {
 		result += place.Accept(v)
